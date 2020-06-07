@@ -1,0 +1,24 @@
+{% extends 'admin/base_admin.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Personal Details {% endblock %}
+
+{% block search %}
+
+{% endblock %}
+
+{% block body %}
+<div class ='col-sm-5 col-sm-offset-3'>
+    <h1>{{ title }}</h1><hr>
+
+    <form method="POST" action="">{% csrf_token %}
+        <div  class="list-group-item"><strong>Subscription(6 months) : $200</strong></div>
+        {{form|crispy}}
+        <div></div>
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" value="update"/>
+        </div>
+
+</form>
+</div>
+{% endblock %}

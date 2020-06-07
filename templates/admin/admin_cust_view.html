@@ -1,0 +1,76 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %} Customer List {% endblock %}
+{% block search %}
+{% endblock %}
+{% block nav %}
+
+
+{% endblock %}
+{% block body %}
+<div class='container table-responsive'>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><strong><span class="glyphicon glyphicon-list"></span> Customer List</strong> </div>
+    <div class="panel-body">
+    <strong class="navbar-form navbar-left" style="color: #5f5f5f;"><span class="glyphicon glyphicon-cog"></span> 25 Order Display Per Page </strong>
+
+
+  <!-- Table -->
+  <table class="table table-bordered table-striped table-hover">
+   <tr>
+     <td><strong>Customer ID</strong></td>
+   <td><strong>Customer Name</strong></td>
+    <td><strong>Mobile No.</strong></td>
+    <td><strong>Address</strong></td>
+    <td><strong>Licesence No.</strong></td>
+    <td><strong>Licesence Plate</strong></td>
+    <td><strong>Subscription Start</strong></td>
+    <td><strong>Subscription End</strong></td>
+    <td><strong>Action</strong></td>
+  </tr>
+
+      {% for ob in c_list %}
+    <tr>
+    <td>{{ob.id}} ORD</td>
+    <td>{{ob.first_name}} </td>
+    <td>{{ob.mobileno}}</td>
+    <td>{{ob.address}}</td>
+    <td>{{ob.license_number}}</td>
+    <td>{{ob.license_place}}</td>
+    <td>{{ob.sub_start}}</td>
+    <td>{{ob.sub_end}}</td>
+    <td>
+            <!-- Shreyus -->
+         <!--<a href="{% url 'booking_detail' ob.id %}"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></button></a> -->
+        <!-- Shreyus -->
+         <a href="{% url 'customer_termination' ob.id %}"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></a>
+
+    </td>
+</tr>
+    {% endfor %}
+
+  </table>
+
+
+
+<nav>
+  <ul class="pager">
+    <li class="previous">{% if order.has_previous %}
+            <a href="?page={{ order.previous_page_number }}" style="background-color:#1aa3ff !important; color: white !important;"><span aria-hidden="true">&larr;</span> Previous</a>
+    {% endif %}
+    </li>
+      <li class="previous">
+         <strong> Page {{ order.number }} of {{ order.paginator.num_pages }}.</strong>
+
+    </li>
+    <li class="next">{% if order.has_next %}
+            <a href="?page={{ order.next_page_number }}" style="background-color:#1aa3ff !important; color: white !important;">
+        Next <span aria-hidden="true">&rarr;</span></a>{% endif %}</li>
+  </ul>
+</nav>
+    <hr>
+
+    </div>
+    </div>
+</div>
+{% endblock %}

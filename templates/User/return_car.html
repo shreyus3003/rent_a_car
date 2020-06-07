@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Return Vehicle {% endblock %}
+
+{% block body %}
+
+
+<div class ='col-sm-6 col-sm-offset-3'>
+  <strong><p style="color: dodgerblue">Your request for returning vehicle has been updated. Please leave your valuable comments below</p></strong>
+
+    {% if late_charges is not 0 %}
+    <h5>Late Charges</h5>
+    ${{ late_charges }}
+    {% endif %}
+  <h2>Add comment</h2>
+  <form action="." method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+
+      <a href="{% url 'usersearch' %}" class="btn btn-primary" role="button">Submit</a>
+
+  </form>
+
+
+</div>
+
+{% endblock %}

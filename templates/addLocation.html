@@ -1,0 +1,26 @@
+{% extends 'admin/base_admin.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Add Location {% endblock %}
+
+{% block search %}
+{% endblock %}
+{% block nav %}
+
+
+
+{% endblock %}
+{% block body %}
+<div class ='col-sm-6 col-sm-offset-3'>
+    <div class="panel panel-primary">
+<div class="list-group-item active">
+    <strong><span class="glyphicon glyphicon-plus"></span> Add Location</strong>
+  </div><br>
+<form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+      {{form|crispy}}
+
+    <input type="submit" class='btn btn-primary' value="Create post">
+</form>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}  Admin Site {% endblock %}
+
+{% block delete_confirm %}
+        <script type="text/javascript">
+         <!--
+            function getConfirmation(){
+               var retVal = confirm("Do you want to Delete ?");
+                if(retVal) return true;
+                else return false;
+            }
+         //-->
+      </script>
+    {% endblock %}
+{% block search %}
+{% endblock %}
+{% block nav %}
+
+
+
+{% endblock %}
+{% block body %}
+<div class='container table-responsive'>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h5><strong><span class="glyphicon glyphicon-list"></span> All Car List</strong></h5> </div>
+    <div class="panel-body">
+  <strong class="navbar-form navbar-left" style="color: #5f5f5f;"><span class="glyphicon glyphicon-cog"></span> 25 Car Display Per Page </strong>
+
+   <!-- search box-->
+
+      <form method="GET" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Car Search" value="{{request.GET.q}}" name="q">
+        </div>
+        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span> Search</button>
+      </form>
+
+  <!-- Table -->
+
+  <table class="table table-bordered table-striped table-hover">
+
+   <tr>
+    <td><strong>Car Name</strong></td>
+    <td><strong>Car Type</strong></td>
+    <td><strong>Depot</strong></td>
+    <td><strong>Cost TYPE</strong></td>
+    <td><strong>Cost </strong></td>
+    <td><strong>Location</strong></td>
+    <td><strong>Actions</strong></td>
+  </tr>
+
+      <tbody>
+      {% for ob in car %}
+
+    <tr>
+    <td>{{ob.make}}</td>
+    <td>{{ob.car_type}}</td>
+    <td>{{ob.depot}}</td>
+    <td>{{ob.cost_opt}}</td>
+    <td>{{ob.cost}}</td>
+    <td>{{ob.zipcode}}</td>
+
+    <td>
+
+         <a href="{% url 'car_detail_admin' ob.id %}"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></button></a>
+         <a href="{% url 'car_edit' ob.id %}"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button></a>
+         <a href="{% url 'car_delete' ob.id %}"><button type="button" class="btn btn-danger" onclick="return getConfirmation()"><span class="glyphicon glyphicon-trash"></span></button></a>
+
+    </td>
+    </tr>
+    {% endfor %}
+</tbody>
+  </table>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">{% if car.has_previous %}
+            <a href="?page={{ movie.previous_page_number }}" style="background-color:#1aa3ff !important; color: white !important;"><span aria-hidden="true">&larr;</span> Previous</a>
+    {% endif %}
+    </li>
+      <li class="previous" style="color: black !important;">
+          Page {{ car.number }} of {{ car.paginator.num_pages }}.
+
+    </li>
+    <li class="next">{% if car.has_next %}
+            <a href="?page={{ movie.next_page_number }}" style="background-color:#1aa3ff !important; color: white !important;">
+        Next <span aria-hidden="true">&rarr;</span></a>{% endif %}</li>
+  </ul>
+</nav>
+        <hr>
+
+</div>
+
+</div>
+
+
+
+</div> <!--end container-->
+{% endblock %}

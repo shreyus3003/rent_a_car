@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Personal Details {% endblock %}
+
+{% block search %}
+
+{% endblock %}
+
+{% block body %}
+<div class ='col-sm-5 col-sm-offset-3'>
+    <h1>{{ title }}</h1><hr>
+
+    <form method="POST" action="">{% csrf_token %}
+        <div  class="list-group-item"><strong>First Name: {{user.first_name}}</strong></div>
+        <div  class="list-group-item"><strong>Last Name   :{{user.last_name}}</strong></div>
+        <div  class="list-group-item"><strong>Subscription(6 moths) : $200</strong></div>
+        {{form|crispy}}
+        <div></div>
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" value="Register"/>
+        </div>
+
+</form>
+</div>
+{% endblock %}

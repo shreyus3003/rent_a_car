@@ -1,0 +1,82 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Car Rental System {% endblock %}</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+<body>
+
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="glyphicon glyphicon-align-justify"></span>
+
+      </button>
+      <li><a class="navbar-brand" href="{% url 'usersearch' %}"><span class="glyphicon glyphicon-road"></span> Rent-a-Ride</a></li>
+
+
+
+    </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+         <li>
+             {% block search %}
+            <!-- search box-->
+
+      <form method="GET" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" size="10"     placeholder="Search by Car" value="{{request.GET.q}}" name="q">
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
+      </form>
+
+            <!-- search box-->
+
+      <!--<form action="{% url 'car_loc_search1' %}" method="GET" class="navbar-form navbar-right" role="search">-->
+    <form method="GET" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" size="15" placeholder="Search by Location" value="{{request.GET.p}}" name="p">
+          <!--  <input type="text" class="form-control" size="15" placeholder="Search by Location" value="{{request.GET.q}}" name="q">-->
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
+      </form>
+    {% endblock %}
+
+
+
+{% block nav %}
+
+        <li><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-list-alt"></span> My bookings</a></li>
+        <li><a href="{% url 'customercreated' %}"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-out"></span> Logout&nbsp;     {{request.user.username}}</a></li>
+{% endblock %}
+      </ul>
+    </div>
+
+
+  </div>
+</nav>
+
+
+{% block body %}
+<div class="container">
+
+</div>
+{% endblock %}
+</body>
+</html>

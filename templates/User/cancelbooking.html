@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Return Vehicle {% endblock %}
+
+{% block body %}
+
+
+<div class ='col-sm-6 col-sm-offset-3'>
+  <strong><p style="color: red">Your request for Cancel booking has been updated.</p></strong>
+    {% if c_charges is not 0 %}
+    <h5>Cancellation Charges</h5>
+    ${{ c_charges }} <br />
+
+    {% endif %}
+  <h5>Amount Refunded</h5>
+    ${{ r_charges }} <br />
+
+  <br />
+    <a href="{% url 'usersearch' %}" class="btn btn-primary" role="button">Back</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

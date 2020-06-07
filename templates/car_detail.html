@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Detail of {{detail.make}} {% endblock %}
+
+{% block body %}
+
+{% block search %}
+{% endblock %}
+
+
+
+<div class ='col-sm-6 col-sm-offset-3'>
+  <div class="list-group-item active">
+    <strong><span class="glyphicon glyphicon-film"></span> Car Detail</strong>
+  </div>
+  {% if detail.image %}
+  <img src='{{ detail.image.url }}' class="img-responsive"/>
+  {% endif %}
+  <a href="" class="list-group-item"><strong>Car Name: </strong>{{detail.make}}</a>
+  <a href="" class="list-group-item"><strong>Car Type   : </strong>{{detail.car_type}}</a>
+  <a href="" class="list-group-item"><strong>Year   : </strong>{{detail.year}}</a>
+  <a href="" class="list-group-item"><strong>Mileage   : </strong>{{detail.cur_milage}}</a>
+  <a href="" class="list-group-item"><strong>Cost Type   : </strong>{{detail.cost_opt}}</a>
+  <a href="" class="list-group-item"><strong>Cost   : </strong>${{detail.cost}}</a>
+  <a href="" class="list-group-item"><strong>Location   : </strong>{{detail.depot}}</a>
+
+  <div class="pull-right">
+    <a href="{% url 'usersearch' %}"><button type="button" class="btn btn-danger"> Back</button></a>
+    <a href="{% url 'order_create' detail.id %}"><button type="button" class="btn btn-primary"></> Book</button></a>
+    
+<hr>
+  </div>
+
+</div>
+
+{% endblock %}

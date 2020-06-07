@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Car Rental System {% endblock %}</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<body>
+
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="glyphicon glyphicon-align-justify"></span>
+
+      </button>
+      <li><a class="navbar-brand" href="{% url 'admin_car_list' %}"><span class="glyphicon glyphicon-road"></span> Rent-a-Ride</a></li>
+
+
+
+    </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+
+
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'admin_car_list' %}"><span class="glyphicon glyphicon-list-alt"></span> Car List</a></li>
+        <li><a href="{% url 'order_list' %}"><span class="glyphicon glyphicon-list-alt"></span> Bookings List</a></li>
+        <li><a href="{% url 'location_list' %}"><span class="glyphicon glyphicon-map-marker"></span> Locations</a></li>
+        <li><a href="{% url 'message' %}"><span class="glyphicon glyphicon-user"></span> Accounts</a></li>
+        <li><a href="{% url 'car_create' %}"><span class="glyphicon glyphicon-plus"></span> Add Car</a></li>
+          <li><a href="{% url 'location' %}"><span class="glyphicon glyphicon-plus"></span>Add Location</a></li>
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+
+
+
+    </div>
+
+
+  </div>
+</nav>
+
+
+{% block body %}
+<div class="container">
+
+</div>
+{% endblock %}
+</body>
+</html>

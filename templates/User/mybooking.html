@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Order Detail {% endblock %}
+
+{% block body %}
+<div class ='col-sm-6 col-sm-offset-3'>
+
+  <p class="list-group-item active">
+    <strong><span class="glyphicon glyphicon-tag"></span> Booking Detail</strong>
+  </p>
+  <!-- Table -->
+  <table class="table table-bordered table-striped table-hover">
+   <tr>
+     <!--<td><strong>Booking ID</strong></td>-->
+    <td><strong>Car Name</strong></td>
+    <td><strong>From</strong></td>
+    <td><strong>To</strong></td>
+    <td><strong>Hours</strong></td>
+    <td><strong>Cost</strong></td>
+    <td><strong>Action</strong></td>
+  </tr>
+
+      {% for ob in c_book %}
+    <tr>
+    <!--<td>{{ob.id}}</td> -->
+    <td>{{ob.vehicle}}</td>
+    <td>{{ob.start_time}}</td>
+    <td>{{ob.end_time}}</td>
+    <td>{{ob.hours}}</td>
+    <td>${{ob.user_tran}}</td>
+    <td>
+
+
+         <a href="{% url 'return_vehicle' ob.id %}"><button type="button" class="btn btn-primary" >Return</span></button></a>
+         <a href="{% url 'delete_booking' ob.id %}"><button type="button" class="btn btn-danger" >Cancel</span></button></a>
+
+    </td>
+</tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,225 @@
+<!--&lt;!&ndash;{{ latest_question_list }}&ndash;&gt;-->
+
+<!--<form action="/your-name/" method="post">-->
+<!--    <label for="your_name">Your name: </label>-->
+<!--    <input id="your_name" type="text" name="your_name" value="{{ latest_question_list }}">-->
+<!--    <input type="submit" value="OK">-->
+<!--</form>-->
+
+
+
+<!--{% block content %}-->
+<!--  <h1>Details Summary: {{ book_instance.book.title }}</h1>-->
+<!--  <p>Borrower: {{ book_instance.borrower }}</p>-->
+<!--  <p{% if book_instance.is_overdue %} class="text-danger"{% endif %}>Due date: {{ latest_question_list }}</p>-->
+
+<!--  <form action="" method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <table>-->
+<!--    {{ form.as_table }}-->
+<!--    </table>-->
+<!--    <input type="submit" value="Submit">-->
+<!--  </form>-->
+<!--{% endblock %}-->
+
+
+<!--{{ user.first_name }}-->
+<!--{{ user.address }}-->
+<!--{{ user.last_name }}-->
+<!--{{ user.license_number }}-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--<style>-->
+<!--.card {-->
+<!--  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);-->
+<!--  max-width: 300px;-->
+<!--  margin: auto;-->
+<!--  text-align: center;-->
+<!--  font-family: arial;-->
+<!--}-->
+
+<!--.title {-->
+<!--  color: blue;-->
+<!--  font-size: 20px;-->
+<!--}-->
+
+<!--&lt;!&ndash;button {&ndash;&gt;-->
+<!--&lt;!&ndash;  border: none;&ndash;&gt;-->
+<!--&lt;!&ndash;  outline: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  display: inline-block;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 8px;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: red;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #000;&ndash;&gt;-->
+<!--&lt;!&ndash;  text-align: center;&ndash;&gt;-->
+<!--&lt;!&ndash;  cursor: pointer;&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 50%;&ndash;&gt;-->
+<!--&lt;!&ndash;  font-size: 18px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--a {-->
+<!--  text-decoration: none;-->
+<!--  font-size: 12px;-->
+<!--  color: black;-->
+<!--}-->
+
+<!--button:hover, a:hover {-->
+<!--  opacity: 0.7;-->
+<!--}-->
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2 style="text-align:center">User Profile Card</h2>-->
+
+<!--<div class="card">-->
+
+<!--    {{ request.user.username }}-->
+<!--    <h1> {{ user.first_name }}</h1>-->
+<!--     <h1> {{ user.last_name}}</h1>-->
+<!--     <h1> {{ user.mobileno }}</h1>-->
+<!--     <h1> {{ user.license_number }}</h1>-->
+
+<!--  </div>-->
+<!--&lt;!&ndash;  <p><button>Contact</button></p>&ndash;&gt;-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+<!--<output> {{ user.first_name }} </output>-->
+
+
+<!--<table>-->
+<!--<tr>-->
+<!--  <th>First_Name</th>-->
+<!--  <th>Last_Name</th>-->
+<!--  <th>Mobile Number</th>-->
+<!--  <th>Mobile Number</th>-->
+<!--</tr>-->
+<!--{% for b in obj %}-->
+<!--  <td>{{ b.first_name }}</td>-->
+<!--  <td>{{ b.last_name }}</td>-->
+<!--  <td>{{ b.mobileno }}</td>-->
+<!--  <td>{{ b.license_number }}</td>-->
+<!--{% endfor %}-->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            <div class="d-flex justify-content-start">
+                                <div class="image-container">
+                                    <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                    <div class="middle">
+                                        <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                                        <input type="file" style="display: none;" id="profilePicture" name="file" />
+                                    </div>
+                                  {% for b in obj8 %}
+                                    {% for c in obj9 %}
+                                </div>
+                                <div class="userData ml-3">
+                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">{{ request.user.username }}</a></h2>
+
+                                </div>
+                                <div class="ml-auto">
+                                    <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
+                                    </li>
+<!--                                    <li class="nav-item">-->
+<!--                                        <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Connected Services</a>-->
+<!--                                    </li>-->
+                                </ul>
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">FIRST NAME</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{ b.first_name }}
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">LAST NAME</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                               {{ b.last_name }}
+                                            </div>
+                                        </div>
+                                        <hr />
+
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">MOBILE NUMBER</label>
+                                            </div>
+
+                                            <div class="col-md-8 col-6">
+                                                {{ b.mobileno }}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">DIVER'S LICENSE NUMBER</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{ b.license_number }}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">ACCOUNT EXPIRY DATE</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{ c.start_date }}
+                                            </div>
+                                            </div>
+                                        <hr />
+                                         {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                        Facebook, Google, Twitter Account that are connected to this account
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
